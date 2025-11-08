@@ -19,7 +19,8 @@
 Сделайте файл hello.sh исполняемым, выполните его.
     `chmod +x src/hello.sh && src/hello.sh`
 Напишите bash скрипт, который выводит текущий путь, текущую дату и время, а также содержимое переменной окружения PATH.
-    ```cat << EOF > script.sh
+    ```sh
+cat << EOF > script.sh
 #!/bin/bash
 pwd
 date
@@ -55,4 +56,3 @@ EOF
     `od -An  -N "$(echo 150*4 | bc)" -w4 -i /dev/random  > numbers.txt`
 - "Скормите" скрипту average.sh значения из файла numbers.txt.
     `cat numbers.txt | xargs ./average.sh
-`
