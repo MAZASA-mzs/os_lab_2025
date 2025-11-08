@@ -1,4 +1,4 @@
-#include "swap.h"
+#include "libswap.h"
 
 void Swap(char *left, char *right)
 {
