@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <pthread.h>
-#include <unistd.h> // для sleep
+#include <unistd.h>
 
 pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex2 = PTHREAD_MUTEX_INITIALIZER;
@@ -10,11 +10,11 @@ void *thread1_func(void *args) {
     pthread_mutex_lock(&mutex1);
     printf("Thread 1: Locked mutex 1.\n");
 
-    // Имитация работы, чтобы второй поток успел захватить свой мьютекс
+    // imitation of vigorous activity
     sleep(1); 
 
     printf("Thread 1: Trying to lock mutex 2...\n");
-    pthread_mutex_lock(&mutex2); // Здесь произойдет блокировка
+    pthread_mutex_lock(&mutex2); // Lock here
     printf("Thread 1: Locked mutex 2.\n");
 
     pthread_mutex_unlock(&mutex2);
@@ -30,7 +30,7 @@ void *thread2_func(void *args) {
     sleep(1);
 
     printf("Thread 2: Trying to lock mutex 1...\n");
-    pthread_mutex_lock(&mutex1); // Здесь произойдет блокировка
+    pthread_mutex_lock(&mutex1); // Lock here
     printf("Thread 2: Locked mutex 1.\n");
 
     pthread_mutex_unlock(&mutex1);
